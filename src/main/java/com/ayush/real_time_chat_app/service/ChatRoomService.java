@@ -21,6 +21,11 @@ public class ChatRoomService {
     }
 
     public ChatRoomResponse createChatRoom(ChatRoomRequest request) {
+
+        if (chatRoomRepository.existsByName(request.getName())) {
+            return new ChatRoomResponse("Chat room already exists", request.getName(), null);
+        }
+
         ChatRoom chatRoom = new ChatRoom();
         chatRoom.setName(request.getName());
         chatRoom.setCreatedAt(LocalDateTime.now());

@@ -1,5 +1,6 @@
 package com.ayush.real_time_chat_app.controller;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,7 @@ public class ChatRoomController {
     }
 
     @PostMapping
-    public ChatRoomResponse createChatRoom(@RequestBody ChatRoomRequest request) {
+    public ChatRoomResponse createChatRoom(@Validated @RequestBody ChatRoomRequest request) {
         return chatRoomService.createChatRoom(request);
     }
 
