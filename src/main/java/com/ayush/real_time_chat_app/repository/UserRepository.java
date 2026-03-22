@@ -11,5 +11,6 @@ import com.ayush.real_time_chat_app.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
+    Optional<User> findByUsername(String username);
     
 }
